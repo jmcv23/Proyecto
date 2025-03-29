@@ -1,0 +1,29 @@
+h1 {
+    margin-top: 50px;
+    text-align: center;
+    color: #28a745;
+    font-size: 2.5em;
+}
+.stars span {
+    cursor: pointer;
+    font-size: 2rem;
+    color: grey;
+}
+
+.stars span.seleccionada {
+    color: gold;
+}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+}
+
+.star-rating .stars {
+    display: flex;
+    gap: 5px;
+}
+
+.star-rating .d-none {
+    display: none;
+}

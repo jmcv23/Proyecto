@@ -1,0 +1,32 @@
+@startuml
+'title "Relaciones entre clases"
+
+'Descomentar para formato estándar (quitar carácter ' en líneas más abajo)
+'hide circle
+'skinparam classAttributeIconSize 0
+
+
+class Clase1 {
+- atributo: Integer
+- metodo(parametro): Integer
+}
+class Clase2 {
+}
+class Clase3 {
+}
+class Clase4 {
+}
+
+
+Clase1 ..> Clase2: dependencia
+Clase1 --"rol" Clase3: > asociación
+Clase1 o--"1" Clase4: agregación
+Clase1 *-- Clase5: composición
+
+'herencia
+class Clase6 extends Clase4 {
+}
+
+
+
+@enduml

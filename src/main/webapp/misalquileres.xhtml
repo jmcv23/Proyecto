@@ -1,0 +1,99 @@
+<ui:composition
+        xmlns:h="jakarta.faces.html"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:f="jakarta.faces.core"
+        template="/WEB-INF/plantillas/general.xhtml">
+    <ui:define name="content">
+        <html lang="es"
+              xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:h="jakarta.faces.html">
+        <h:head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>Historial de Reservas de Coches</title>
+            <h:outputStylesheet library="css" name="misalquileres.css" />
+        </h:head>
+        <h:body>
+            <h1>Historial de mis reservas</h1>
+
+            <h:panelGroup layout="block" styleClass="contenedor-columnas">
+
+                <h:panelGroup layout="block" styleClass="columna">
+                    <h2>Próximos (Reservados)</h2>
+                    <ui:repeat value="#{resCtrl.listarReservasPorEstado('RESERVADO')}" var="reserva">
+                        <h:panelGroup layout="block" styleClass="reserva">
+
+                            <h:graphicImage value="#{resCtrl.obtenerVehiculoPorMatricula(reserva.matricula).imagen}"
+                                            alt="Imagen del vehículo" class="card-img-top" />
+                            <h3>Reserva #{reserva.idReserva}</h3>
+                            <h:panelGroup layout="block" styleClass="detalles">
+                                <p><span>Fecha de recogida:</span> #{reserva.fechaRecogida}</p>
+                                <p><span>Fecha de devolución:</span> #{reserva.fechaDevolucion}</p>
+                                <p><span>Ubicación:</span> #{reserva.lugarRecogida}</p>
+                                <p><span>Precio total:</span> €#{reserva.precioReserva}</p>
+                            </h:panelGroup>
+                            <h:panelGroup layout="block" styleClass="acciones">
+                                <h:button value="Modificar" styleClass="modificar" outcome="editarReservaUsuario">
+                                    <f:param name="idReserva" value="#{reserva.idReserva}" />
+                                </h:button>
+                                <h:form>
+                                    <h:commandButton value="Cancelar" styleClass="cancelar"
+                                                     onclick="return confirm('¿Estás seguro de que quieres cancelar esta reserva?');"
+                                                     action="#{resCtrl.cambiarEstadoReserva(reserva.idReserva, 'CANCELADO')}">
+                                        <f:ajax render="@form" />
+                                    </h:commandButton>
+                                </h:form>
+                            </h:panelGroup>
+                        </h:panelGroup>
+                    </ui:repeat>
+                </h:panelGroup>
+
+
+                <h:panelGroup layout="block" styleClass="columna">
+                    <h2>Completados</h2>
+                    <ui:repeat value="#{resCtrl.listarReservasPorEstado('COMPLETADO')}" var="reserva">
+                        <h:panelGroup layout="block" styleClass="reserva">
+
+                            <h:graphicImage value="#{resCtrl.obtenerVehiculoPorMatricula(reserva.matricula).imagen}"
+                                            alt="Imagen del vehículo" class="card-img-top" />
+                            <h3>Reserva #{reserva.idReserva}</h3>
+                            <h:panelGroup layout="block" styleClass="detalles">
+                                <p><span>Fecha de recogida:</span> #{reserva.fechaRecogida}</p>
+                                <p><span>Fecha de devolución:</span> #{reserva.fechaDevolucion}</p>
+                                <p><span>Ubicación:</span> #{reserva.lugarRecogida}</p>
+                                <p><span>Precio total:</span> €#{reserva.precioReserva}</p>
+                            </h:panelGroup>
+                            <h:panelGroup layout="block" styleClass="acciones">
+                                <h:button value="Valorar" styleClass="valoracion" outcome="crearValoracion"/>
+                                <h:outputText value="Completado" styleClass="estado completado" />
+                            </h:panelGroup>
+                        </h:panelGroup>
+                    </ui:repeat>
+                </h:panelGroup>
+
+
+                <h:panelGroup layout="block" styleClass="columna">
+                    <h2>Cancelados</h2>
+                    <ui:repeat value="#{resCtrl.listarReservasPorEstado('CANCELADO')}" var="reserva">
+                        <h:panelGroup layout="block" styleClass="reserva">
+
+                            <h:graphicImage value="#{resCtrl.obtenerVehiculoPorMatricula(reserva.matricula).imagen}"
+                                            alt="Imagen del vehículo" class="card-img-top" />
+                            <h3>Reserva #{reserva.idReserva}</h3>
+                            <h:panelGroup layout="block" styleClass="detalles">
+                                <p><span>Fecha de recogida:</span> #{reserva.fechaRecogida}</p>
+                                <p><span>Fecha de devolución:</span> #{reserva.fechaDevolucion}</p>
+                                <p><span>Ubicación:</span> #{reserva.lugarRecogida}</p>
+                                <p><span>Precio total:</span> €#{reserva.precioReserva}</p>
+                            </h:panelGroup>
+                            <h:panelGroup layout="block" styleClass="acciones">
+                                <h:outputText value="Cancelado" styleClass="estado cancelado" />
+                            </h:panelGroup>
+                        </h:panelGroup>
+                    </ui:repeat>
+                </h:panelGroup>
+            </h:panelGroup>
+        </h:body>
+        </html>
+    </ui:define>
+</ui:composition>

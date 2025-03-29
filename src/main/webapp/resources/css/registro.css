@@ -1,0 +1,32 @@
+body {
+    background-color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.titulo {
+    margin-bottom: 1px;
+    font-weight: bold;
+    color: rgb(25, 128, 84);
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+
+.caja{
+    border: none;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-bottom: 35px;
+}

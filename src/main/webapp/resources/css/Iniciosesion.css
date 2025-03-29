@@ -1,0 +1,21 @@
+
+.text-center.my-3 {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+
+.card-title {
+    text-align: center;
+}
+
+
+.form-control {
+    text-align: center;
+    width: 75%;
+}
+
+
+.w-100.d-flex.justify-content-center .btn {
+    width: 50%;
+}

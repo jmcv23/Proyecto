@@ -1,0 +1,134 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #28a745;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.contenedor-columnas {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.columna {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.columna h2 {
+    text-align: center;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.reserva {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reserva:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.reserva img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.reserva h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #2575fc; /* Azul */
+}
+
+.reserva p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.reserva .detalles {
+    margin-top: 10px;
+}
+
+.reserva .detalles span {
+    font-weight: bold;
+    color: #28a745;
+}
+
+.reserva .acciones {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.reserva .acciones button {
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
+
+.reserva .acciones button.modificar {
+    background-color: #2575fc; /* Azul */
+    color: #fff;
+}
+
+.reserva .acciones button.modificar:hover {
+    background-color: #1a5bbf;
+}
+
+
+.reserva .acciones button.valoracion {
+    background-color: #ff8c42;
+    color: #fff;
+}
+
+.reserva .acciones button.valoracion:hover {
+    background-color: #e67e22;
+}
+
+.reserva .estado {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.reserva .estado.completado {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.reserva .estado.cancelado {
+    background-color: #dc3545;
+    color: #fff;
+}

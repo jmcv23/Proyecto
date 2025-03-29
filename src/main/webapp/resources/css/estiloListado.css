@@ -1,0 +1,49 @@
+.filtros {
+    margin-top: 20px;
+}
+
+.filter-bar label {
+    font-weight: 500;
+}
+
+.coche {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.coche h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #343a40;
+}
+
+.coche p {
+    margin-bottom: 5px;
+    color: #6c757d;
+}
+
+.coche i {
+    margin-right: 8px;
+    color: #007bff;
+}
+
+.contenedorCoches {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+i {
+    color: #454545;
+}
+
+.botones-accion .btn {
+    width: 55%; /* Asegura que los botones ocupen todo el ancho del contenedor */
+}
+
+.botones-accion .btn.mb-2 {
+    margin-bottom: 2.5rem; /* Añade un margen inferior al botón "Ver Valoraciones" */
+}

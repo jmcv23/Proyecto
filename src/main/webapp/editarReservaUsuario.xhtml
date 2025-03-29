@@ -1,0 +1,139 @@
+<ui:composition
+        xmlns:h="jakarta.faces.html"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:f="jakarta.faces.core"
+        template="/WEB-INF/plantillas/general.xhtml">
+
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewParam name="idReserva" value="#{resCtrl.reserva.idReserva}" />
+            <f:event type="preRenderView" listener="#{resCtrl.cargarReserva()}" />
+        </f:metadata>
+        <h:outputStylesheet library="css" name="crearVehiculo.css" />
+        <div class="container">
+            <div class="text-center mt-5">
+                <h1>EDITAR RESERVA</h1>
+            </div>
+
+            <h:form id="contact-form" role="form">
+                <div class="row">
+                    <div class="col-lg-7 mx-auto">
+                        <div class="card mt-2 mx-auto p-4 bg-light">
+                            <div class="card-body bg-light">
+
+                                <div class="container">
+                                    <div class="controls">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                               
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+
+                                                    <h:outputLabel for="form_matricula" value="Matrícula" />
+                                                    <h:selectOneMenu id="form_matricula" class="form-control" value="#{resCtrl.reserva.matricula}">
+                                                        <f:selectItems value="#{resCtrl.matriculasDisponibles}" var="matricula" itemValue="#{matricula}" itemLabel="#{matricula}" />
+                                                    </h:selectOneMenu>
+                                                    <h:message for="form_matricula" style="color: red;" />
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h:outputLabel for="form_dni" value="DNI" />
+                                                    <h:inputText id="form_dni" value="#{resCtrl.reserva.dniReserva}" class="form-control" validator="#{resCtrl.validarDNI}" />
+                                                    <h:message for="form_dni" style="color: red;" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel for="form_fecha_recogida" value="Fecha Recogida" />
+                                                    <h:inputText id="form_fecha_recogida" class="form-control" type="date" value="#{resCtrl.reserva.fechaRecogida}">
+                                                        <f:converter converterId="localDateConverter" />
+                                                    </h:inputText>
+                                                    <h:message for="form_fecha_recogida" style="color: red;" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel for="form_lugar_recogida" value="Lugar Recogida" />
+                                                    <h:selectOneMenu id="form_lugar_recogida" class="form-control" value="#{resCtrl.reserva.lugarRecogida}">
+                                                        <f:selectItems value="#{resCtrl.lugaresRecogida}" />
+                                                    </h:selectOneMenu>
+                                                    <h:message for="form_lugar_recogida" style="color: red;" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel for="form_hora_recogida" value="Hora Recogida" />
+                                                    <h:inputText id="form_hora_recogida" class="form-control" type="time" value="#{resCtrl.reserva.horaRecogida}">
+                                                        <f:converter converterId="localTimeConverter" />
+                                                    </h:inputText>
+                                                    <h:message for="form_hora_recogida" style="color: red;" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel for="form_fecha_devolucion" value="Fecha Devolución" />
+                                                    <h:inputText id="form_fecha_devolucion" class="form-control" type="date" value="#{resCtrl.reserva.fechaDevolucion}">
+                                                        <f:converter converterId="localDateConverter" />
+                                                    </h:inputText>
+                                                    <h:message for="form_fecha_devolucion" style="color: red;" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel for="form_lugar_devolucion" value="Lugar Devolución" />
+                                                    <h:selectOneMenu id="form_lugar_devolucion" class="form-control" value="#{resCtrl.reserva.lugarDevolucion}">
+                                                        <f:selectItems value="#{resCtrl.lugaresDevolucion}" />
+                                                    </h:selectOneMenu>
+                                                    <h:message for="form_lugar_devolucion" style="color: red;" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel for="form_hora_devolucion" value="Hora Devolución" />
+                                                    <h:inputText id="form_hora_devolucion" class="form-control" type="time" value="#{resCtrl.reserva.horaDevolucion}">
+                                                        <f:converter converterId="localTimeConverter" />
+                                                    </h:inputText>
+                                                    <h:message for="form_hora_devolucion" style="color: red;" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <h:outputLabel for="form_precio" value="Precio Total" />
+                                                    <h:inputText id="form_precio" class="form-control" value="#{resCtrl.reserva.precioReserva}" disabled="true" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-4">
+                                                <div class="form-group text-center">
+                                                    <h:commandButton value="Actualizar" action="#{resCtrl.actualizarReserva()}" styleClass="btn btn-success btn-send pt-2 btn-block" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,51 @@
+<ui:composition
+        xmlns:h="jakarta.faces.html"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:f="jakarta.faces.core"
+        template="/WEB-INF/plantillas/general.xhtml">
+
+    <ui:define name="content">
+        <h:outputStylesheet library="css" name="verValoracion.css" />
+        <f:metadata>
+            <f:viewParam name="id" value="#{valoracionCtrl.valoracion.id}" />
+            <f:event type="preRenderView" listener="#{valoracionCtrl.cargarValoracionCompleta()}" />
+        </f:metadata>
+
+        <h:outputStylesheet library="css" name="estrellas.css" />
+
+        <h1 class="text-center mb-4">Ver Valoración</h1>
+
+        <div class="container" style="max-width: 800px;">
+            <h:form styleClass="card p-4 shadow">
+                <div class="text-center mb-3">
+                    <h:graphicImage value="#{valoracionCtrl.usuario.foto}"
+                                    styleClass="img-fluid rounded-circle"
+                                    style="width: 100px; height: 100px;"
+                                    alt="Foto de perfil" />
+                </div>
+
+                <h2 class="text-center">#{valoracionCtrl.usuario.nombre}</h2>
+
+                <p class="text-center">Matricula: #{valoracionCtrl.vehiculo.matricula}</p>
+
+                <div class="star-rating text-center mb-3">
+                    <div class="stars">
+                        <span class="#{valoracionCtrl.valoracion.estrellas >= 1 ? 'seleccionada' : ''}">★</span>
+                        <span class="#{valoracionCtrl.valoracion.estrellas >= 2 ? 'seleccionada' : ''}">★</span>
+                        <span class="#{valoracionCtrl.valoracion.estrellas >= 3 ? 'seleccionada' : ''}">★</span>
+                        <span class="#{valoracionCtrl.valoracion.estrellas >= 4 ? 'seleccionada' : ''}">★</span>
+                        <span class="#{valoracionCtrl.valoracion.estrellas >= 5 ? 'seleccionada' : ''}">★</span>
+                    </div>
+                </div>
+
+                <p class="text-center">#{valoracionCtrl.valoracion.descripcion}</p>
+
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <h:button styleClass="btn btn-outline-success" value="Volver" outcome="gestionValoraciones" />
+                </div>
+            </h:form>
+        </div>
+
+    </ui:define>
+</ui:composition>

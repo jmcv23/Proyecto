@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html"
+    >
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <h:outputStylesheet library="css" name="bootstrap.min.css"  />
+    <h:outputStylesheet library="css" name="Iniciosesion.css"  />
+    <title>Inicio de sesión</title>
+</h:head>
+
+<h:body lang="es">
+    <ui:insert name="metadata"/>
+    <section class="h-100">
+        <div class="container h-100">
+            <div class="row justify-content-sm-center h-100">
+                <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+                    <div class="text-center my-3">
+                        <h:graphicImage name="logo.png" library="img" width="150"/>
+                    </div>
+                    <div class="card shadow-lg">
+                        <div class="card-body p-5">
+
+                            <h1 class="fs-4 card-title fw-bold mb-3 text-success text-center">Inicio de sesión</h1>
+
+                            <h:form method="POST" class="needs-validation" novalidate="true" autocomplete="off">
+                                <div class="d-flex flex-column align-items-center">
+
+                                    <div class="mb-3 w-75">
+                                        <h:outputLabel for="email" value="Correo electrónico" class="form-label text-muted"/>
+                                        <h:inputText id="email" type="email" class="form-control text-center" required="true" autofocus="true"/>
+                                        <h:message for="email" styleClass="invalid-feedback"/>
+                                    </div>
+
+                                    <div class="mb-3 w-75">
+                                        <h:outputLabel for="password" value="Contraseña" class="form-label text-muted"/>
+                                        <h:inputSecret id="password" class="form-control text-center" required="true"/>
+                                        <h:link value="¿Has olvidado la contraseña?" outcome="passwordolvidada" class="float-end text-success"/>
+                                        <h:message for="password" styleClass="invalid-feedback"/>
+                                    </div>
+
+
+                                    <div class="w-100 d-flex justify-content-center">
+                                        <h:button value="Inicio de sesión" outcome="index" class="btn btn-success"/>
+                                    </div>
+                                </div>
+                            </h:form>
+                        </div>
+                        <div class="card-footer py-3 border-0">
+                            <div class="text-center">
+                                ¿Tienes cuenta? <h:link value="Registrarse" outcome="Registro" class="text-dark"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</h:body>
+
+</html>

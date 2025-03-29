@@ -1,0 +1,108 @@
+body {
+    background-color: #f8f9fa;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-top: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.5em;
+}
+
+.section {
+    margin-bottom: 25px;
+    padding: 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    color: #444;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: 500;
+}
+
+.section p {
+    margin: 10px 0;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.section p i {
+    margin-right: 10px;
+    color: #198754;
+}
+
+.confirm-button {
+    width: 150px;
+    padding: 8px;
+    font-size: 16px;
+    margin: 30px auto 0;
+    background: linear-gradient(45deg, #198754, #146c43);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    transition: background 0.3s ease;
+    display: block;
+}
+
+.confirm-button:hover {
+    background: linear-gradient(45deg, #146c43, #198754);
+}
+
+.vehicle-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    width: 350px;
+    display: block;
+    margin: 0 auto 15px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.price-total {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #198754;
+}
+
+.row {
+    margin-bottom: 15px;
+}
+
+.row p {
+    margin: 8px 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section {
+    animation: fadeIn 0.5s ease-out;
+}

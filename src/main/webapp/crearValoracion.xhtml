@@ -1,0 +1,57 @@
+<ui:composition
+        xmlns:h="jakarta.faces.html"
+        xmlns:f="jakarta.faces.core"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:cc="http://xmlns.jcp.org/jsf/composite/components"
+        template="/WEB-INF/plantillas/general.xhtml">
+
+    <ui:define name="content">
+        <h:outputStylesheet library="css" name="estrellas.css" />
+        <h:outputScript library="js" name="estrellasCrear.js" />
+
+        <h1 class="text-center mb-4">Crear Valoración</h1>
+
+
+        <div class="container" style="max-width: 800px;">
+            <h:form styleClass="card p-4 shadow">
+
+                <div class="row mb-3">
+
+                    <div class="col-md-6">
+                        <label for="idMatricula" class="form-label">Matrícula:</label>
+                        <h:inputText id="idMatricula" styleClass="form-control"
+                                     value="#{valoracionCtrl.valoracion.matricula}" required="true" validator="#{valoracionCtrl.validarMatricula}" />
+                        <h:message styleClass="form-text text-danger" for="idMatricula" />
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <h:outputLabel for="dni" value="DNI:" class="mb-2 text-muted"/>
+                        <h:inputText id="dni" value="#{valoracionCtrl.valoracion.dniUsuario}" class="form-control" required="true" validator="#{valoracionCtrl.validarDNI}"/>
+                        <h:message for="dni" styleClass="form-text text-danger"/>
+                    </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <label class="form-label">Estrellas:</label>
+                    <cc:estrellas value="#{valoracionCtrl.valoracion.estrellas}" required="true" />
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="idDescripcion" class="form-label">Descripción:</label>
+                    <h:inputTextarea id="idDescripcion" styleClass="form-control" rows="3"
+                                     value="#{valoracionCtrl.valoracion.descripcion}" required="true" />
+                    <h:message styleClass="form-text text-danger" for="idDescripcion" />
+                </div>
+
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <h:commandButton styleClass="btn btn-success me-md-2" value="Guardar" action="#{valoracionCtrl.crearValoracion()}" />
+                    <h:button styleClass="btn btn-outline-success" value="Salir" outcome="misalquileres" />
+                </div>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

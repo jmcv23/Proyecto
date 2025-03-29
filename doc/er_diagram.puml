@@ -1,0 +1,25 @@
+@startuml
+'title "Diagrama Entidad-Relación"
+
+'Descomentar para formato estándar (quitar carácter ' en líneas más abajo)
+'hide circle
+'skinparam classAttributeIconSize 0
+
+entity Entity01 {
+    ' llave primaria y autogenerada
+    * id : Integer <<generated, PK>>
+    * atributo-obligatorio: Date
+    atributo-opcional: Cadena
+}
+
+entity Entity02 {
+    ' llave foránea
+    * entity01_id: Integer <<FK>> 
+}
+
+'uno a muchos
+Entity01 ||--|{ Entity02 
+'uno a uno
+Entity02 ||--|| Entity03
+
+@enduml

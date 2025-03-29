@@ -1,0 +1,57 @@
+<ui:composition
+xmlns:h="jakarta.faces.html"
+xmlns:ui="jakarta.faces.facelets"
+xmlns:f="jakarta.faces.core"
+xmlns:p="jakarta.faces.passthrough"
+template="/WEB-INF/plantillas/general.xhtml">
+
+    <ui:define name="content">
+        <h:outputStylesheet library="css" name="estiloBusca.css"  />
+        <div class="background-box">
+            <div class="form-container">
+                <h2 class="text-center text-success mb-4">Reserva tu Coche</h2>
+                <h:form>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-2 mb-3">
+                            <h:outputLabel for="pickupLocation" class="form-label text-success" value="Lugar de recogida" />
+                            <h:inputText id="pickupLocation"  class="form-control" placeholder="Ciudad, aeropuerto..." />
+                        </div>
+                        <div class="col-md-6 col-lg-2 mb-3">
+                            <h:outputLabel for="dropoffLocation" class="form-label text-success" value="Lugar de devolución" />
+                            <h:inputText id="dropoffLocation"  class="form-control" placeholder="Ciudad, aeropuerto..." />
+                        </div>
+                        <div class="col-md-6 col-lg-2 mb-3">
+                            <h:outputLabel for="idFreco" class="form-label text-success" value="Fecha recogida" />
+                            <h:inputText p:type="date" styleClass="form-control" label="Freco" id="idFreco" >
+                                <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+                            </h:inputText>
+                        </div>
+                        <div class="col-md-6 col-lg-2 mb-3">
+                            <h:outputLabel for="pickupTime" class="form-label text-success" value="Hora recogida" />
+                            <h:inputText p:type="time" id="pickupTime"  class="form-control" />
+                        </div>
+                        <div class="col-md-6 col-lg-2 mb-3">
+                            <h:outputLabel for="idFdevo" class="form-label text-success" value="Fecha devolución" />
+                            <h:inputText p:type="date" styleClass="form-control" label="Fdevo" id="idFdevo" >
+                                <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+                            </h:inputText>
+                        </div>
+                        <div class="col-md-6 col-lg-2 mb-3">
+                            <h:outputLabel for="dropoffTime" class="form-label text-success" value="Hora devolución" />
+                            <h:inputText p:type="time" id="dropoffTime" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-footer mt-3 d-flex justify-content-between align-items-center">
+                        <div class="form-check">
+                            <h:selectBooleanCheckbox id="over30"  class="form-check-input" />
+                            <h:outputLabel for="over30" class="form-check-label text-success" value="Soy mayor de 30 años" />
+                        </div>
+                        <h:button value="Buscar" outcome="ListadoVehiculosAlquiler" class="btn btn-success" />
+
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

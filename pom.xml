@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>daw</groupId>
+    <artifactId>app</artifactId>
+    <version>1.0</version>
+    <name>app</name>
+    <packaging>war</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-web-api</artifactId>
+            <version>10.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.faces</groupId>
+            <artifactId>jakarta.faces-api</artifactId>
+            <version>3.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.enterprise</groupId>
+            <artifactId>jakarta.enterprise.cdi-api</artifactId>
+            <version>4.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>app</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version> <!-- Actualiza a la versión más reciente -->
+            </plugin>
+            <plugin>
+                <groupId>fish.payara.maven.plugins</groupId>
+                <artifactId>payara-micro-maven-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                <payaraVersion>6.2024.12</payaraVersion>
+                <deployWar>true</deployWar>
+                <contextRoot>/</contextRoot>
+                    <!-- Opcional: optimizar los recursos del servidor -->
+                    <commandLineOptions>
+                        <option>
+                            <key>--disablephonehome</key>
+                        </option>
+                        <option>
+                            <key>--noHazelcast</key>
+                        </option>
+                    </commandLineOptions>
+                    <javaCommandLineOptions>
+                        <option>
+                            <key>-Djava.security.egd</key>
+                            <value>file:/dev/./urandom</value>
+                        </option>
+                    </javaCommandLineOptions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

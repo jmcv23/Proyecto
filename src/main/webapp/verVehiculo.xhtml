@@ -1,0 +1,61 @@
+<ui:composition
+        xmlns:h="jakarta.faces.html"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:f="jakarta.faces.core"
+        template="/WEB-INF/plantillas/general.xhtml">
+
+    <ui:define name="content">
+
+        <f:metadata>
+            <f:viewParam name="matricula" value="#{vehiculoCtrl.vehiculo.matricula}" />
+            <f:event type="preRenderView" listener="#{vehiculoCtrl.cargarVehiculo(vehiculoCtrl.vehiculo.matricula)}" />
+        </f:metadata>
+
+        <div class="container mt-5">
+            <div class="text-center">
+                <h1 class="text-success fw-bold">DETALLES DEL VEHÍCULO</h1>
+            </div>
+
+            <div class="card shadow-lg mt-4">
+                <div class="card-body">
+                    <div class="row align-items-center">
+
+                        <div class="col-md-5 text-center">
+                            <h:graphicImage value="#{vehiculoCtrl.vehiculo.imagen}" style="width: 100%; max-width: 200px; height: auto; object-fit: cover; border-radius: 10px;" />
+                        </div>
+
+
+                        <div class="col-md-7">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p><strong>Matrícula:</strong> #{vehiculoCtrl.vehiculo.matricula}</p>
+                                    <p><strong>Marca:</strong> #{vehiculoCtrl.vehiculo.marca}</p>
+                                    <p><strong>Modelo:</strong> #{vehiculoCtrl.vehiculo.modelo}</p>
+                                    <p><strong>Ciudad:</strong> #{vehiculoCtrl.vehiculo.ciudad}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong>Tipo:</strong> #{vehiculoCtrl.vehiculo.tipo}</p>
+                                    <p><strong>Transmisión:</strong> #{vehiculoCtrl.vehiculo.transmision}</p>
+                                    <p><strong>Combustible:</strong> #{vehiculoCtrl.vehiculo.combustible}</p>
+                                    <p><strong>Plazas:</strong> #{vehiculoCtrl.vehiculo.plazas}</p>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12 text-center">
+                                    <div class="price-box p-3 rounded shadow-sm" style="display: inline-block; background-color: #f8f9fa; border: 2px solid #28a745;">
+                                        <span class="fw-bold" style="font-size: 1.2rem; color: #333;">Precio por día:</span>
+                                        <span class="fw-bold" style="font-size: 1.5rem; color: #28a745;">#{vehiculoCtrl.vehiculo.precio} €</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <h:button value="Volver" outcome="gestionVehiculos" styleClass="btn btn-success px-4 py-2" />
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

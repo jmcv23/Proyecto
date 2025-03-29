@@ -1,0 +1,61 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                template="/WEB-INF/plantillas/general.xhtml">
+
+    <ui:define name="content">
+        <h:head>
+            <title>Valoraciones de Vehículos</title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+            <h:outputStylesheet library="css" name="listaValoraciones.css" />
+        </h:head>
+
+        <h:body>
+            <h:panelGroup layout="block" styleClass="car-section">
+                <h:graphicImage name="ibiza.jpg" library="img" alt="Seat Ibiza" styleClass="car-image"/>
+                <div class="car-name">Seat Ibiza 2023</div>
+                <div class="car-model">Modelo: Hatchback</div>
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" styleClass="ratings-section">
+                <h2 class="section-title">Valoraciones</h2>
+
+                <h:panelGroup layout="block" styleClass="rating-item">
+                    <h:graphicImage name="perfil.jpg" library="img" alt="Perfil" styleClass="profile-pic"/>
+                    <h:panelGroup layout="block" styleClass="rating-details">
+                        <div class="user-name">Juan Pérez</div>
+                        <h:panelGroup layout="block" styleClass="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                        </h:panelGroup>
+                        <div class="rating-description">Excelente coche, muy ágil y perfecto para la ciudad.</div>
+                    </h:panelGroup>
+                </h:panelGroup>
+
+                <h:panelGroup layout="block" styleClass="rating-item">
+                    <h:graphicImage name="perfil.jpg" library="img" alt="Perfil" styleClass="profile-pic"/>
+                    <h:panelGroup layout="block" styleClass="rating-details">
+                        <div class="user-name">María Gómez</div>
+                        <h:panelGroup layout="block" styleClass="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                            <span class="star">☆</span>
+                        </h:panelGroup>
+                        <div class="rating-description">Muy buen diseño, pero el maletero es un poco pequeño.</div>
+                    </h:panelGroup>
+                </h:panelGroup>
+
+                <h:panelGroup layout="block" styleClass="back-button-container">
+                    <h:button value="Volver" outcome="ListadoVehiculosAlquiler" styleClass="back-button" />
+                </h:panelGroup>
+            </h:panelGroup>
+        </h:body>
+    </ui:define>
+</ui:composition>

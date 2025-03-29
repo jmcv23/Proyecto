@@ -1,0 +1,152 @@
+<ui:composition
+        xmlns:h="jakarta.faces.html"
+        xmlns:ui="jakarta.faces.facelets"
+        template="/WEB-INF/plantillas/general.xhtml">
+
+    <ui:define name="content">
+        <h:outputStylesheet library="css" name="sobrenosotros.css" />
+
+        <div class="container mt-5 text-center">
+            <h1 class="text-success">Sobre Nosotros</h1>
+            <p class="text-muted">
+                Somos <span class="fw-bold text-danger">RentCarX</span>, revolucionamos la experiencia de alquiler de coches, combinando innovación, seguridad y un servicio excepcional.
+                Con más de diez años de liderazgo en el sector, hemos construido una reputación basada en la excelencia, ofreciendo a nuestros clientes vehículos de última generación que garantizan confort, eficiencia y confianza en cada viaje.
+            </p>
+
+
+            <div class="carousel-container">
+                <h:graphicImage name="bmw.png" library="img" alt="Coche 1"/>
+                <h:graphicImage name="golf.png" library="img" alt="Coche 2"/>
+                <h:graphicImage name="jaguar.png" library="img" alt="Coche 3"/>
+                <h:graphicImage name="mercedes.png" library="img" alt="Coche 3"/>
+                <h:graphicImage name="nissan.png" library="img" alt="Coche 3"/>
+                <h:graphicImage name="saab.png" library="img" alt="Coche 3"/>
+
+            </div>
+        </div>
+
+
+        <div class="container mt-5 text-center">
+            <hr class="border border-success border-2 opacity-50"/>
+            <h2 class="text-success">Nuestras Localizaciones</h2>
+            <div class="row row-cols-1 row-cols-md-4 g-4 mt-4">
+                <div class="col">
+                    <div class="card location-card">
+                        <h:graphicImage name="madrid.png" library="img" class="card-img-top" alt="Madrid"/>
+                        <div class="card-body">
+                            <p class="card-text">Madrid</p>
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalMadrid">Más Información</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="modalMadrid" tabindex="-1" aria-labelledby="modalMadridLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalMadridLabel">Madrid - Dirección</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Calle Gran Vía, 28
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col">
+                    <div class="card location-card">
+                        <h:graphicImage name="barcelona.png" library="img" class="card-img-top" alt="Barcelona"/>
+                        <div class="card-body">
+                            <p class="card-text">Barcelona</p>
+
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalBarcelona">Más Información</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="modalBarcelona" tabindex="-1" aria-labelledby="modalBarcelonaLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalBarcelonaLabel">Barcelona - Dirección</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Avenida Diagonal, 502
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col">
+                    <div class="card location-card">
+                        <h:graphicImage name="sevilla.png" library="img" class="card-img-top" alt="Sevilla"/>
+                        <div class="card-body">
+                            <p class="card-text">Sevilla</p>
+
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalSevilla">Más Información</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="modalSevilla" tabindex="-1" aria-labelledby="modalSevillaLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalSevillaLabel">Sevilla - Dirección</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Calle Tetuán, 12
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card location-card">
+                        <h:graphicImage name="jaen.png" library="img" class="card-img-top" alt="Jaén"/>
+                        <div class="card-body">
+                            <p class="card-text">Jaén</p>
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalJaen">Más Información</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="modalJaen" tabindex="-1" aria-labelledby="modalJaenLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalJaenLabel">Jaén - Dirección</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Calle Bernabé Soriano, 15
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

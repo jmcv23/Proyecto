@@ -1,0 +1,165 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:f="jakarta.faces.core"
+                template="/WEB-INF/plantillas/general.xhtml">
+
+    <ui:define name="content">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+        <h:outputStylesheet library="css" name="estiloListado.css"  />
+        <h:form>
+            <div class="container filtros align-content-center">
+                <div class="filter-bar mb-4">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label>Modelo</label>
+                            <h:selectOneMenu  class="form-control">
+                                <f:selectItem itemLabel="Todos" itemValue="Todos"/>
+                                <f:selectItem itemLabel="Ibiza" itemValue="Ibiza"/>
+                                <f:selectItem itemLabel="Otro modelo" itemValue="Otro modelo"/>
+                            </h:selectOneMenu>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Marca</label>
+                            <h:selectOneMenu  class="form-control">
+                                <f:selectItem itemLabel="Todas" itemValue="Todas"/>
+                                <f:selectItem itemLabel="Seat" itemValue="Seat"/>
+                                <f:selectItem itemLabel="Otra marca" itemValue="Otra marca"/>
+                            </h:selectOneMenu>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Tipo</label>
+                            <h:selectOneMenu  class="form-control">
+                                <f:selectItem itemLabel="Todos" itemValue="Todos"/>
+                                <f:selectItem itemLabel="Turismo" itemValue="Turismo"/>
+                                <f:selectItem itemLabel="Familiar" itemValue="Familiar"/>
+                            </h:selectOneMenu>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Precio/Día</label>
+                            <h:selectOneMenu  class="form-control">
+                                <f:selectItem itemLabel="Cualquiera" itemValue="Cualquiera"/>
+                                <f:selectItem itemLabel="Menos de 100€" itemValue="Menos de 100€"/>
+                                <f:selectItem itemLabel="100€ - 200€" itemValue="100€ - 200€"/>
+                            </h:selectOneMenu>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Ciudad</label>
+                            <h:selectOneMenu  class="form-control">
+                                <f:selectItem itemLabel="Todas" itemValue="Todas"/>
+                                <f:selectItem itemLabel="Jaén" itemValue="Jaén"/>
+                                <f:selectItem itemLabel="Otra ciudad" itemValue="Otra ciudad"/>
+                            </h:selectOneMenu>
+                        </div>
+                        <div class="col-md-2 align-self-end">
+                            <h:commandButton value="Filtrar" class="btn btn-success btn-block" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contenedorCoches">
+                    <!-- Primer coche -->
+                    <div class="cocheLista">
+                        <div class="row coche mb-3">
+                            <div class="col-md-3">
+                                <h:outputLink value="https://via.placeholder.com/150" target="_blank">
+                                    <h:graphicImage name="ibiza.jpg" library="img" width="250px" height="200"/>
+                                </h:outputLink>
+                            </div>
+                            <div class="col-md-6">
+                                <h3>Seat Ibiza</h3>
+                                <p><i class="fas fa-door-open text-success"></i> Nº Puertas: 3</p>
+                                <p><i class="fas fa-cogs text-success"></i> Transmisión: Automática</p>
+                                <p><i class="fas fa-gas-pump text-success"></i> Combustible: Gasolina</p>
+                                <p><i class="fas fa-map-marker-alt text-success"></i> Ciudad: Madrid</p>
+                                <p><i class="fas fa-car text-success"></i> Tipo: Deportivo</p>
+                            </div>
+                            <div class="col-md-3 text-right">
+                                <p>Desde el 10 Marzo 2025 hasta el 12 Marzo 2025</p>
+                                <p class="font-weight-bold">Precio: 180€</p>
+                                <div class="botones-accion">
+                                    <h:button value="Ver Valoraciones" outcome="listaValoraciones" class="btn btn-success btn-block mb-2" />
+                                    <h:button value="Alquilar" outcome="Confirmacion" class="btn btn-success btn-block" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Segundo coche -->
+                    <div class="cocheLista">
+                        <div class="row coche mb-3">
+                            <div class="col-md-3">
+                                <h:outputLink value="https://via.placeholder.com/150" target="_blank">
+                                    <h:graphicImage name="ibiza.jpg" library="img" width="250px" height="200"/>
+                                </h:outputLink>
+                            </div>
+                            <div class="col-md-6">
+                                <h3>Seat Ibiza</h3>
+                                <p><i class="fas fa-door-open text-success"></i> Nº Puertas: 3</p>
+                                <p><i class="fas fa-cogs text-success"></i> Transmisión: Automática</p>
+                                <p><i class="fas fa-gas-pump text-success"></i> Combustible: Gasolina</p>
+                                <p><i class="fas fa-map-marker-alt text-success"></i> Ciudad: Madrid</p>
+                                <p><i class="fas fa-car text-success"></i> Tipo: Deportivo</p>
+                            </div>
+                            <div class="col-md-3 text-right">
+                                <p>Desde el 10 Marzo 2025 hasta el 12 Marzo 2025</p>
+                                <p class="font-weight-bold">Precio: 180€</p>
+                                <div class="botones-accion">
+                                    <h:button value="Ver Valoraciones" outcome="listaValoraciones" class="btn btn-success btn-block mb-2" />
+                                    <h:button value="Alquilar" outcome="Confirmacion" class="btn btn-success btn-block" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tercer coche -->
+                    <div class="cocheLista">
+                        <div class="row coche mb-3">
+                            <div class="col-md-3">
+                                <h:outputLink value="https://via.placeholder.com/150" target="_blank">
+                                    <h:graphicImage name="ibiza.jpg" library="img" width="250px" height="200"/>
+                                </h:outputLink>
+                            </div>
+                            <div class="col-md-6">
+                                <h3>Seat Ibiza</h3>
+                                <p><i class="fas fa-door-open text-success"></i> Nº Puertas: 3</p>
+                                <p><i class="fas fa-cogs text-success"></i> Transmisión: Automática</p>
+                                <p><i class="fas fa-gas-pump text-success"></i> Combustible: Gasolina</p>
+                                <p><i class="fas fa-map-marker-alt text-success"></i> Ciudad: Madrid</p>
+                                <p><i class="fas fa-car text-success"></i> Tipo: Deportivo</p>
+                            </div>
+                            <div class="col-md-3 text-right">
+                                <p>Desde el 10 Marzo 2025 hasta el 12 Marzo 2025</p>
+                                <p class="font-weight-bold">Precio: 180€</p>
+                                <div class="botones-accion">
+                                    <h:button value="Ver Valoraciones" outcome="listaValoraciones" class="btn btn-success btn-block mb-2" />
+                                    <h:button value="Alquilar" outcome="Confirmacion" class="btn btn-success btn-block" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <nav aria-label="navegacion">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <h:commandLink value="Anterior" class="page-link text-success"/>
+                        </li>
+                        <li class="page-item">
+                            <h:commandLink value="1" class="page-link text-success"/>
+                        </li>
+                        <li class="page-item">
+                            <h:commandLink value="2" class="page-link text-success" />
+                        </li>
+                        <li class="page-item">
+                            <h:commandLink value="3" class="page-link text-success" />
+                        </li>
+                        <li class="page-item">
+                            <h:commandLink value="Siguiente" class="page-link text-success"/>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

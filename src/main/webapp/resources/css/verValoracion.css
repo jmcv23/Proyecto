@@ -1,0 +1,22 @@
+.star-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.stars span {
+    cursor: pointer;
+    font-size: 2rem;
+    color: grey;
+    margin: 0 5px;
+}
+
+.stars span.seleccionada {
+    color: gold;
+}
+
+.img-fluid.rounded-circle {
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

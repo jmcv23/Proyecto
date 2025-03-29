@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+                xmlns:f="jakarta.faces.core">
+
+
+    <cc:interface>
+        <cc:attribute name="value" required="true" />
+        <cc:attribute name="required" default="false" />
+    </cc:interface>
+
+    <cc:implementation>
+        <div class="star-rating">
+            <h:selectOneRadio value="#{cc.attrs.value}"
+                              required="#{cc.attrs.required}"
+                              layout="pageDirection"
+                              styleClass="d-none star-radio">
+                <f:selectItem itemValue="1" itemLabel="★" />
+                <f:selectItem itemValue="2" itemLabel="★★" />
+                <f:selectItem itemValue="3" itemLabel="★★★" />
+                <f:selectItem itemValue="4" itemLabel="★★★★" />
+                <f:selectItem itemValue="5" itemLabel="★★★★★" />
+            </h:selectOneRadio>
+
+            <div class="stars">
+                <span data-value="1">★</span>
+                <span data-value="2">★</span>
+                <span data-value="3">★</span>
+                <span data-value="4">★</span>
+                <span data-value="5">★</span>
+            </div>
+        </div>
+    </cc:implementation>
+</ui:composition>

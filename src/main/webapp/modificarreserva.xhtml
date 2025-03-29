@@ -1,0 +1,86 @@
+<ui:composition
+        xmlns:h="jakarta.faces.html"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:f="jakarta.faces.core"
+        xmlns:p="jakarta.faces.passthrough"
+        template="/WEB-INF/plantillas/general.xhtml">
+
+    <ui:define name="content">
+        <div class="container">
+            <h1 class="text-center text-success">Modificar Reserva de Coche</h1>
+
+            <div class="image-container text-center mb-4">
+                <h:graphicImage name="porsche.png" library="img" style="max-width: 300px; height: auto;" alt="Coche de alquiler" />
+            </div>
+            <h:form>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h:outputLabel for="lugar-recogida" value="Lugar de Recogida:" styleClass="form-label text-success" />
+                            <h:selectOneMenu id="lugar-recogida" styleClass="form-control">
+                                <f:selectItem itemValue="jaen" itemLabel="Jaén" />
+                                <f:selectItem itemValue="madrid" itemLabel="Madrid" />
+                                <f:selectItem itemValue="sevilla" itemLabel="Sevilla" />
+                                <f:selectItem itemValue="barcelona" itemLabel="Barcelona" />
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h:outputLabel for="lugar-devolucion" value="Lugar de Devolución:" styleClass="form-label text-success" />
+                            <h:selectOneMenu id="lugar-devolucion"  styleClass="form-control">
+                                <f:selectItem itemValue="jaen" itemLabel="Jaén" />
+                                <f:selectItem itemValue="madrid" itemLabel="Madrid" />
+                                <f:selectItem itemValue="sevilla" itemLabel="Sevilla" />
+                                <f:selectItem itemValue="barcelona" itemLabel="Barcelona" />
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h:outputLabel for="fecha-inicio" value="Fecha de Inicio:" styleClass="form-label text-success" />
+                            <h:inputText id="fecha-inicio"  styleClass="form-control" p:type="date">
+                                <f:convertDateTime pattern="yyyy-MM-dd" />
+                            </h:inputText>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h:outputLabel for="fecha-fin" value="Fecha de Fin:" styleClass="form-label text-success" />
+                            <h:inputText id="fecha-fin" styleClass="form-control" p:type="date">
+                                <f:convertDateTime pattern="yyyy-MM-dd" />
+                            </h:inputText>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h:outputLabel for="hora-recogida" value="Hora de Recogida:" styleClass="form-label text-success" />
+                            <h:inputText id="hora-recogida" styleClass="form-control" p:type="time" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h:outputLabel for="hora-devolucion" value="Hora de Devolución:" styleClass="form-label text-success" />
+                            <h:inputText id="hora-devolucion" styleClass="form-control" p:type="time" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h:button value="Confirmar"  styleClass="btn btn-success" outcome="misalquileres" />
+                    </div>
+                </div>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

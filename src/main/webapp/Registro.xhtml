@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    <h:outputStylesheet library="css" name="registro.css" />
+    <title>Registro</title>
+</h:head>
+
+<h:body lang="es">
+    <ui:insert name="metadata"/>
+
+    <section class="h-100">
+        <div class="container h-100">
+            <div class="row justify-content-sm-center h-100">
+                <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-9">
+                    <div class="text-center my-2">
+                        <h:graphicImage name="logo.png" library="img" width="150" alt="logo"/>
+                    </div>
+                    <div class="card shadow-lg">
+                        <div class="card-body p-5">
+                            <h1 class="fs-4 card-title fw-bold mb-4 text-success text-center">REGISTRO</h1>
+                            <h:form enctype="multipart/form-data" class="needs-validation" novalidate="true" autocomplete="off">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <h:outputLabel for="name" value="Nombre:" class="mb-2 text-muted"/>
+                                        <h:inputText id="name" value="#{usuCtrl.usuario.nombre}" class="form-control" required="true"/>
+                                        <h:message for="name" style="color: red"/>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <h:outputLabel for="dni" value="DNI:" class="mb-2 text-muted"/>
+                                        <h:inputText id="dni" value="#{usuCtrl.usuario.dni}" class="form-control" required="true" validator="#{usuCtrl.validarDNI}"/>
+                                        <h:message for="dni" style="color: red"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <h:outputLabel for="birthdate" value="Fecha de nacimiento:" class="mb-2 text-muted"/>
+                                        <h:inputText id="birthdate" type="date" value="#{usuCtrl.usuario.fechaNacimientoString}" class="form-control" required="true"/>
+                                        <h:message for="birthdate" style="color: red"/>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <h:outputLabel for="address" value="Dirección:" class="mb-2 text-muted"/>
+                                        <h:inputText id="address" value="#{usuCtrl.usuario.direccion}" class="form-control" required="true"/>
+                                        <h:message for="address" style="color: red"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <h:outputLabel for="email" value="Correo electrónico:" class="mb-2 text-muted"/>
+                                        <h:inputText id="email" value="#{usuCtrl.usuario.email}" class="form-control" required="true" validatorMessage="Correo no válido">
+                                            <f:validateRegex pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$"/>
+                                        </h:inputText>
+                                        <h:message for="email" style="color: red"/>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <h:outputLabel for="password" value="Contraseña:" class="mb-2 text-muted"/>
+                                        <h:inputSecret id="password" value="#{usuCtrl.usuario.password}" class="form-control" required="true"/>
+                                        <h:message for="password" style="color: red"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <h:outputLabel for="profile_picture" value="Imagen del perfil:" class="mb-2 text-muted"/>
+                                        <h:inputFile id="profile_picture" value="#{usuCtrl.file}" class="form-control" accept="image/*" required="true"/>
+                                        <h:message for="profile_picture" style="color: red"/>
+                                    </div>
+                                </div>
+                                <p class="form-text text-muted mb-3">
+                                    Al registrarte, aceptas nuestros términos y condiciones.
+                                </p>
+                                <div class="d-flex justify-content-center">
+                                    <h:commandButton value="Registrar" action="#{usuCtrl.registrar()}" class="btn btn-success"/>
+                                </div>
+                            </h:form>
+                        </div>
+                        <div class="card-footer py-3 border-0">
+                            <div class="text-center">
+                                ¿Ya tienes cuenta? <h:link value="Iniciar sesión" outcome="login" class="text-dark"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</h:body>
+
+</html>
